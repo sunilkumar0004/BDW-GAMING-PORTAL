@@ -28,6 +28,7 @@ export interface Game {
   downloadLinks?: DownloadLinks;
   tags?: string[];
   players?: string;           // "100M+ Players"
+  reviewCount?: number;       // Number of reviews
 }
 
 export interface GamesResponse {
