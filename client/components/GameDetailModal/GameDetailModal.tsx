@@ -204,7 +204,7 @@ export default function GameDetailModal({ game, onClose }: Props) {
           <ReviewSection 
             gameId={game.id} 
             initialRating={game.rating} 
-            initialReviewCount={game.reviewCount}
+                       initialReviewCount={(game as any).reviewCount}
           />
         </div>
       </div>
