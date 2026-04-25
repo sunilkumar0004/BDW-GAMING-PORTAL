@@ -1,0 +1,245 @@
+.section {
+  padding: 40px 0;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 0 10px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pcIcon {
+  color: var(--primary);
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.countBadge {
+  background: rgba(123, 94, 255, 0.1);
+  border: 1px solid rgba(123, 94, 255, 0.2);
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.navGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.navBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.trackContainer {
+  position: relative;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.card {
+  flex: 0 0 240px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  padding: 0;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(123, 94, 255, 0.15);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .bg {
+  transform: scale(1.1);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(6, 6, 20, 0.9) 100%);
+}
+
+.ratingBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: #FFD700;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.ratingBadge span {
+  font-size: 14px;
+}
+
+.platforms {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.platforms span {
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  background: rgba(0,0,0,0.4);
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.cardInfo {
+  padding: 16px;
+  background: #0d0d22;
+}
+
+.cardCat {
+  font-size: 10px;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.downloadInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+}
+
+.downloadInfo span {
+  font-size: 14px;
+  color: #34c759;
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(123, 94, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.card:hover .playOverlay {
+  opacity: 1;
+}
+
+.playBtn {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 0 20px var(--primary-glow);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .playBtn {
+  transform: translateY(0);
+}
+
+.playBtn span:first-child {
+  font-size: 20px;
+}

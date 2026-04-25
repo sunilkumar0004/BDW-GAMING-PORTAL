@@ -1,0 +1,405 @@
+.banner {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 420px;
+  background: #080818;
+  flex-shrink: 0;
+  margin-top: 24px;
+  border: 1px solid rgba(100, 60, 255, 0.2);
+  box-shadow: 0 0 60px rgba(100, 60, 255, 0.08), 0 24px 64px rgba(0,0,0,0.5);
+}
+
+.skeleton {
+  height: 420px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #0d0d22 25%, #141430 50%, #0d0d22 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  margin-top: 24px;
+}
+
+/* Animated grid overlay — static for performance */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(120, 80, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 80, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+/* Slide */
+.slide {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.slideIn {
+  animation: slideEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slideOut {
+  animation: slideLeave 0.25s ease forwards;
+}
+
+@keyframes slideEnter {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideLeave {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4) saturate(1.3);
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 6, 20, 0.98) 0%,
+    rgba(6, 6, 20, 0.75) 45%,
+    rgba(6, 6, 20, 0.1) 70%,
+    transparent 100%
+  );
+}
+
+/* Neon top line — static */
+.neonTop {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #7B5EFF 30%, #FF4B6E 70%, transparent 100%);
+  box-shadow: 0 0 16px rgba(123, 94, 255, 0.6);
+  z-index: 10;
+}
+
+/* Content */
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 40px;
+  pointer-events: none;
+}
+
+.contentInner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 440px;
+  pointer-events: all;
+}
+
+.tagRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.liveChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(123, 94, 255, 0.2);
+  border: 1px solid rgba(123, 94, 255, 0.5);
+  color: #a78bfa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7B5EFF;
+  box-shadow: 0 0 6px #7B5EFF;
+}
+
+.categoryChip {
+  background: rgba(255, 75, 110, 0.15);
+  border: 1px solid rgba(255, 75, 110, 0.3);
+  color: #ff4b6e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+.newChip {
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+.platformChip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.platformChip .material-icons-round {
+  font-size: 14px;
+  color: var(--primary);
+}
+
+.title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-shadow: 0 0 40px rgba(123, 94, 255, 0.4), 0 2px 8px rgba(0,0,0,0.8);
+  background: linear-gradient(135deg, #fff 0%, rgba(200, 180, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.downloadBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.downloadBadge .material-icons-round {
+  font-size: 16px;
+  color: #34c759;
+}
+
+.star { font-size: 14px !important; }
+.ratingNum {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFD700;
+  margin-left: 6px;
+}
+
+.btnRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.playBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #7B5EFF 0%, #FF4B6E 100%);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 30px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(123, 94, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.playBtn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.4s;
+}
+
+.playBtn:hover::before { left: 100%; }
+
+.playBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(123, 94, 255, 0.6);
+}
+
+.playBtn .material-icons-round { font-size: 22px; }
+
+.infoBtn {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.infoBtn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.infoBtn .material-icons-round { font-size: 20px; }
+
+/* Filmstrip on the right */
+.filmStrip {
+  position: absolute;
+  right: 0;
+  top: 0; bottom: 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  background: linear-gradient(90deg, transparent 0%, rgba(6, 6, 20, 0.6) 40%);
+  z-index: 10;
+}
+
+.filmFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.2s;
+  flex-shrink: 0;
+  background: #0a0a1a;
+}
+
+.filmFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transition: filter 0.2s;
+}
+
+.filmFrame:hover img, .filmActive img {
+  filter: brightness(0.9);
+}
+
+.filmFrame:hover {
+  border-color: rgba(123, 94, 255, 0.4);
+  transform: scale(1.03);
+}
+
+.filmActive {
+  border-color: #7B5EFF !important;
+  box-shadow: 0 0 16px rgba(123, 94, 255, 0.3);
+}
+
+.filmBorder {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #7B5EFF;
+  border-radius: 8px;
+  pointer-events: none;
+  animation: filmGlow 2s ease-in-out infinite;
+}
+
+@keyframes filmGlow {
+  0%, 100% { box-shadow: inset 0 0 8px rgba(123, 94, 255, 0.3); }
+  50% { box-shadow: inset 0 0 16px rgba(123, 94, 255, 0.6); }
+}
+
+.filmLabel {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 8px 6px 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 16px;
+  left: 40px;
+  display: flex;
+  gap: 6px;
+  z-index: 20;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dotActive {
+  width: 24px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #7B5EFF, #FF4B6E);
+  box-shadow: 0 0 8px rgba(123, 94, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .banner { height: 280px; }
+  .content { padding: 0 20px; }
+  .title { font-size: 24px; }
+  .desc { display: none; }
+  .filmStrip { display: none; }
+}

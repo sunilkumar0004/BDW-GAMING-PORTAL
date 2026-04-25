@@ -1,0 +1,36 @@
+.page { display: flex; flex-direction: column; min-height: 100vh; position: relative; z-index: 1; }
+
+.content {
+  flex: 1;
+  padding: 28px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeIn 0.4s ease;
+}
+
+.pageIcon {
+  font-size: 36px;
+  color: var(--primary);
+  filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+.pageTitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .content { padding: 16px 16px 32px; gap: 18px; }
+  .pageTitle { font-size: 24px; }
+}

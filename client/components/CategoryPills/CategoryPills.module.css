@@ -1,0 +1,97 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  pointer-events: none;
+}
+
+.trackContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.track::-webkit-scrollbar { display: none; }
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(10, 10, 24, 0.8);
+  border: 1px solid var(--border);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition);
+  backdrop-filter: blur(4px);
+}
+.navBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.prevBtn { left: -16px; }
+.nextBtn { right: -16px; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.pill:hover {
+  border-color: var(--primary);
+  color: var(--text-primary);
+  background: var(--bg-card-hover);
+}
+
+.pill.active {
+  background: linear-gradient(135deg, var(--primary) 0%, #ff6b8a 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.pillIcon { font-size: 17px; }
+
+.skeletonPill {
+  width: 100px;
+  height: 40px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+}

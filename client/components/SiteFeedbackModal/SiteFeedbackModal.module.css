@@ -1,0 +1,161 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  background: var(--bg-elevated);
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 50px var(--primary-glow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.header {
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.closeBtn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 75, 110, 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: rotate(90deg);
+}
+
+.content {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.statsHero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: rgba(123, 94, 255, 0.05);
+  border: 1px solid rgba(123, 94, 255, 0.1);
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.mainRating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.bigNum {
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.starsRow {
+  display: flex;
+  gap: 2px;
+}
+
+.starsRow span {
+  font-size: 20px !important;
+}
+
+.totalReviews {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+.reviewDivider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 30px 0 20px;
+}
+
+.reviewDivider::before,
+.reviewDivider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.reviewDivider span {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+}
+
+.intro {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}

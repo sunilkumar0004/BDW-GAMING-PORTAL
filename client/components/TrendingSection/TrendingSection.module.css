@@ -1,0 +1,201 @@
+.section { display: flex; flex-direction: column; gap: 14px; }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fireIcon {
+  font-size: 24px;
+  color: #ff6b35;
+  filter: drop-shadow(0 0 8px rgba(255,107,53,0.6));
+  animation: pulse 2s ease infinite;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.badge {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #ff6b35, #ff4b6e);
+  color: white;
+}
+
+/* Horizontal track */
+.trackContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.track::-webkit-scrollbar { display: none; }
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 10, 24, 0.8);
+  border: 1px solid var(--border);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition);
+  backdrop-filter: blur(4px);
+}
+.navBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+.prevBtn { left: -10px; }
+.nextBtn { right: -10px; }
+
+/* Card */
+.card {
+  position: relative;
+  flex-shrink: 0;
+  width: 220px;
+  height: 140px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--bg-card);
+  transition: all var(--transition);
+  animation: fadeIn 0.4s ease both;
+  animation-delay: var(--delay, 0s);
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px var(--primary-glow);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  filter: brightness(0.55) saturate(1.2);
+}
+.card:hover .bg { transform: scale(1.08); }
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10,10,24,0.95) 0%, transparent 50%);
+}
+
+/* Rank */
+.rank {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  line-height: 1;
+}
+
+/* Type pill */
+.typePill {
+  position: absolute;
+  top: 8px; right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px; font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 4px;
+  color: white;
+}
+.typePill .material-icons-round { font-size: 11px; }
+.mobilePill { background: linear-gradient(135deg, #34c759, #00b04c); }
+.pcPill     { background: linear-gradient(135deg, #0a84ff, #0060bf); }
+
+/* Card info */
+.cardInfo {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffd700;
+}
+.stars .material-icons-round { font-size: 12px; }
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardCat {
+  font-size: 10px;
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Play overlay on hover */
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.card:hover .playOverlay { opacity: 1; }
+
+.playBtn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 20px var(--primary-glow);
+  transform: scale(0.8);
+  transition: transform var(--transition);
+}
+.card:hover .playBtn { transform: scale(1); }
+.playBtn .material-icons-round { font-size: 24px; color: white; }

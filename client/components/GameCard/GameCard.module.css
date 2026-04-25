@@ -1,0 +1,221 @@
+.card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  animation: fadeIn 0.35s ease both;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-card), 0 0 20px var(--primary-glow);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.featured { border-color: rgba(123, 94, 255, 0.3); }
+
+.downloadCard { border-color: rgba(0, 150, 255, 0.2); }
+.downloadCard:hover { border-color: rgba(0, 150, 255, 0.5); box-shadow: var(--shadow-card), 0 0 20px rgba(0,150,255,0.15); }
+
+/* Image */
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image { transform: scale(1.08); }
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,24,0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity var(--transition);
+  backdrop-filter: blur(3px);
+}
+
+.card:hover .overlay { opacity: 1; }
+
+.actionBtn {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  transform: scale(0.8);
+  transition: transform var(--transition);
+  box-shadow: 0 0 24px var(--primary-glow);
+}
+
+.card:hover .actionBtn { transform: scale(1); }
+.actionBtn .material-icons-round { font-size: 26px; color: white; }
+
+.actionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.2s ease 0.05s;
+}
+.card:hover .actionLabel { opacity: 1; transform: translateY(0); }
+
+/* Badges */
+.badges {
+  position: absolute;
+  top: 8px; left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.badgeNew {
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 0.07em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--accent), #9f7aff);
+  color: white;
+  width: fit-content;
+}
+
+.badgeType {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  color: white;
+  width: fit-content;
+}
+.badgeType .material-icons-round { font-size: 11px; }
+.badgeMobile { background: linear-gradient(135deg, #34c759, #00b04c); }
+.badgePC     { background: linear-gradient(135deg, #0a84ff, #0060bf); }
+
+/* Rating chip */
+.ratingChip {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  display: flex; align-items: center; gap: 2px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px; font-weight: 700;
+  color: #ffd700;
+}
+.ratingChip .material-icons-round { font-size: 13px; }
+
+/* Info section */
+.info {
+  padding: 10px 12px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.platformIcons {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+.platformIcon {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.category {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.title {
+  font-size: 13px; font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.downloads {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Save Button Overlay */
+.saveBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+  color: #fff;
+  opacity: 0;
+}
+
+.saveBtn .material-icons-round {
+  font-size: 18px;
+}
+
+.card:hover .saveBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.saveBtn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.saveBtn.saved {
+  opacity: 1;
+  color: #ff4b4b;
+  background: rgba(255, 75, 75, 0.15);
+  border-color: rgba(255, 75, 75, 0.3);
+}
+
+.saveBtn.saved .material-icons-round {
+  filter: drop-shadow(0 0 8px rgba(255, 75, 75, 0.6));
+}
